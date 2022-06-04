@@ -1,0 +1,238 @@
+// external link
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+// variable 
+
+//coslors
+$color-theme: #57a300;
+$color-primary: #005578;
+$color-secondary: "";
+$color-border: rgb(216, 216, 216);
+$color-black: #000;
+$color-white: #fff;
+
+// sozes
+$s-xs: 12px;
+$s-sm: 14px;
+$s-md: 16px;
+$s-xl: 18px;
+$s-2xl: 22px;
+$s-3xl: 24px;
+$s-4xl: 28px;
+$s-5xl: 36px;
+
+// calclution
+
+$height: calc(100vh - 100px);
+
+
+// basic
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: $color-black;
+}
+
+ul {
+    list-style: none;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    overflow: hidden;
+}
+
+// header 
+
+.header{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-bottom: 1px solid $color-border;
+    height: 100px;
+
+    &-brand {
+        a {
+            font-family: 'Dancing Script', cursive;
+            color: $color-black;
+            font-size: $s-5xl;
+            color: $color-primary;
+            
+            span{
+                color: $color-theme;
+            }
+            
+        }
+    }
+}
+
+// nav menu
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    
+    &-item {
+        padding: 10px 0;
+        position: relative;
+
+        a {
+            font-size: $s-2xl;
+            text-transform: uppercase;
+        }
+
+        &::after {
+            content: "";
+            position: absolute;
+            bottom: -3px;
+            left: 50%;
+            transform: translateX(-50%) scaleX(0);
+            width: 100%;
+            height: 3px;
+            background-color: $color-theme;
+            border-radius: 3px;
+            border-top: 2px solid $color-border;
+            transition: .3s all ease-in-out;
+        }
+
+        &:hover {
+            &::after {
+                transform: translateX(-50%) scaleX(1);
+            }
+        }
+    }
+}
+
+// main 
+
+.home-main{
+    display: grid;
+    grid-template-columns: 25% 75%;
+}
+
+// side bar
+
+.sidebar {
+    border-right: 1px solid $color-border;
+    height: $height;
+    padding: 20px;
+    position: relative;
+
+
+    &-top {
+        
+        h1 {
+            font-size: $s-2xl;
+            padding: 10px 0;
+            color: $color-primary;
+        }
+    }
+
+    &-search {
+        padding: 10px 0;
+
+        &-item {
+            position: relative;
+            height: 45px;
+
+            &-icon {
+                position: absolute;
+                z-index: 2;
+                top: 50%;
+                left: 5px;
+                transform: translateY(-50%);
+                color: $color-primary;
+                font-size: $s-3xl;
+            }
+
+            &-input {
+
+                height: 100%!important;
+                position: absolute!important;
+                
+                input {
+                   height: 100%;
+                   padding: 0 30px;
+                   outline: none;
+                   border: 1px solid $color-border;
+                   font-size: $s-xl;
+
+                   &::placeholder {
+                       font-size: $s-xl;
+                   }
+                }
+            }
+
+            button {
+                position: absolute;
+                right: 20px;
+                width: 20px;
+                top: 50%;
+                transform: translateY(-50%);
+                background-color: transparent;
+                border: none;
+                font-size: $s-4xl;
+                color: $color-primary;
+                cursor: pointer;
+            }
+        }
+    }
+
+    &-body {
+        padding-top: 10px;
+        overflow-y: auto;
+
+        .title {
+            h2 {
+                padding-bottom: 10px;
+            }
+        }
+
+        &-parking{
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+
+            &-item {
+                border-bottom:1px solid $color-border ;
+                padding: 10px 0;
+                overflow: hidden;
+                cursor: pointer;
+
+                &:last-child{
+                    border-bottom: none;
+                }
+
+                button {
+                    background-color: transparent;
+                    border: none;
+                    font-size: $s-md;
+                    cursor: pointer;
+                }
+            }
+        } 
+    }
+
+    &-footer {
+        position: absolute;
+        bottom: 0;
+        padding: 15px 10px;
+        border-top: 1px solid $color-border;
+        width: 100%;
+        left: 0;
+    }
+}
+
+
+// maps
+
+.maps {
+    width: 100%;
+    height: $height;
+}
